@@ -69,10 +69,11 @@ for index in $(seq 0 99); do
         ${BASE_URL}"/session/"${SESSION_ID}"/screenshot")
     END_TIME=$(php -r "echo microtime(true) * 1000;")
     MILLIS_GET_SCREENSHOT=$(php -r "echo ${MILLIS_GET_SCREENSHOT} + ${END_TIME} - ${START_TIME};")
-    #echo ${RESPONSE} | \
-    #    sed -e 's/^.*"value":"\([^"]*\)".*$/\1/g' | \
-    #    tr -d '\n' | \
-    #    base64 --decode --output sample.png
+    echo ${RESPONSE} | \
+    sed -e 's/^.*"value":"\([^"]*\)".*$/\1/g' | \
+    tr -d '\\' | \
+    tr -d '\n' | \
+    base64 --decode --output sample.png
 
 done
 
