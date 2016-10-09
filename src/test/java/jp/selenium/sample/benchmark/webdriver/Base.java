@@ -1,5 +1,6 @@
 package jp.selenium.sample.benchmark.webdriver;
 
+import java.io.File;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Logger;
 
@@ -11,6 +12,8 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+
+import com.google.common.io.Files;
 
 public class Base
 {
@@ -30,6 +33,7 @@ public class Base
     public void testSample() throws Exception
     {
         long startTime, endTime;
+        byte[] bytes = null;
 
         for (int index = 0; index < limit; index++)
         {
@@ -76,10 +80,12 @@ public class Base
             millis[7] += (endTime - startTime);
 
             startTime = System.currentTimeMillis();
-            ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+            bytes = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
             endTime = System.currentTimeMillis();
             millis[8] += (endTime - startTime);
         }
+        
+        Files.write(bytes, new File("screenshot.png"));
     }
 
     @After
