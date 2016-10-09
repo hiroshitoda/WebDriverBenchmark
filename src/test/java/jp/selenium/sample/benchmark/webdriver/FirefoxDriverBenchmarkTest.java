@@ -3,7 +3,6 @@ package jp.selenium.sample.benchmark.webdriver;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.GeckoDriverService;
-import org.openqa.selenium.firefox.MarionetteDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 public class FirefoxDriverBenchmarkTest extends Base
