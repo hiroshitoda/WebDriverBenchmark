@@ -37,6 +37,7 @@ public class Base
 
         for (int index = 0; index < limit; index++)
         {
+            logger.info("" + index);
             startTime = System.currentTimeMillis();
             driver.get("http://example.selenium.jp/reserveApp/");
             endTime = System.currentTimeMillis();
