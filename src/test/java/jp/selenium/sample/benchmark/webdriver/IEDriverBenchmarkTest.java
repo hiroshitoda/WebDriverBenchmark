@@ -9,7 +9,7 @@ public class IEDriverBenchmarkTest extends Base
     @Override
     protected WebDriver getDriver() throws Exception
     {
-        WebDriverManager.iedriver().setup();
+        WebDriverManager.iedriver().arch32().setup();
         return new InternetExplorerDriver();
     }
 }
